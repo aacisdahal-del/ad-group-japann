@@ -8,18 +8,8 @@ export async function POST(req: Request) {
     const filePath = path.join(process.cwd(), 'data', 'leads.json');
 
     // 1. Read existing leads
-    let leads: any[] = [];
-    try {
-      const fileData = await fs.readFile(filePath, 'utf8');
-      if (fileData.trim()) {
-        leads = JSON.parse(fileData);
-        if (!Array.isArray(leads)) {
-          leads = [];
-        }
-      }
-    } catch (err) {
-      // File doesn't exist or can't be read, start with empty array
-    }
+    const fileData = await fs.readFile(filePath, 'utf8');
+    const leads = JSON.parse(fileData);
 
     // 2. Append new lead with timestamp
     const newLead = { ...body, id: Date.now(), date: new Date().toISOString() };

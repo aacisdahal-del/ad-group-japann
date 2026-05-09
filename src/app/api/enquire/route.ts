@@ -1,28 +1,35 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+
+/**
+ * AD GROUP JAPAN - Enquiry API
+ * NOTE: For GitHub Pages (Static Export), this route will NOT be executed.
+ * You should use a service like Formspree or Web3Forms in your frontend.
+ */
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const filePath = path.join(process.cwd(), 'data', 'leads.json');
 
-    // 1. Read existing leads
-    const fileData = await fs.readFile(filePath, 'utf8');
-    const leads = JSON.parse(fileData);
+    // In a server environment, you would save 'body' to a database here.
+    // For GitHub Pages, we recommend handling the submission directly 
+    // from the frontend EnquiryHub.tsx to an external provider.
 
-    // 2. Append new lead with timestamp
-    const newLead = { ...body, id: Date.now(), date: new Date().toISOString() };
-    leads.push(newLead);
+    console.log("Enquiry received:", body);
 
-    // 3. Write back to flat-file
-    await fs.writeFile(filePath, JSON.stringify(leads, null, 2));
-
-    // 4. (Optional) Trigger EmailJS/Resend here
-    // await sendEmailNotification(newLead);
-
-    return NextResponse.json({ success: true, message: "Enquiry logged successfully" });
+    return NextResponse.json({
+      success: true,
+      message: 'Enquiry received successfully',
+    });
   } catch (error) {
-    return NextResponse.json({ success: false, error: "System failed to log enquiry" }, { status: 500 });
+    console.error("API Error:", error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to process enquiry' },
+      { status: 500 }
+    );
   }
+}
+
+// Optional: GET handler if you ever use a real DB
+export async function GET() {
+  return NextResponse.json({ message: "API is active. Use POST to submit enquiries." });
 }

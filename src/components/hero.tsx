@@ -17,12 +17,12 @@ export default function Hero() {
           className="relative w-64 h-64 md:w-96 md:h-96 mb-8 drop-shadow-[0_0_50px_rgba(230,126,34,0.3)]"
         >
           <Image
-            src="/logo-main.png"
-            alt="AD Group Japan Logo"
-            fill
-            className="object-contain"
-            priority
-          />
+  src="/ad-group-japann/logo-main-b.png" // This matches your GitHub repository name
+  alt="AD Group Japan Logo"
+  fill
+  className="object-contain"
+  priority
+/>
         </motion.div>
 
         {/* Text Content */}

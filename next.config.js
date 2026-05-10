@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // GitHub Pages doesn't support Next.js Image Optimization
   },
-  basePath: '/ad-group-japan', // Update this to match your GitHub repo name
+  basePath: '/ad-group-japann', // Update this to match your GitHub repo name
   trailingSlash: true, // Helps fix 404 errors on the /admin page
 };
 

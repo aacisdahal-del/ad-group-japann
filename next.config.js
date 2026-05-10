@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  images: {
-    unoptimized: true,
-  },
-  // Ensure this is EXACTLY your repo name with the leading slash
-  basePath: '/ad-group-japann',
-  
-  // This tells Next.js: "Look for CSS/JS inside the repo folder"
-  assetPrefix: '/ad-group-japann/', 
-  
+  images: { unoptimized: true },
+  basePath: '/ad-group-japann', // Ensure 2 'n's here
+  assetPrefix: '/ad-group-japann/', // And 2 'n's here
   trailingSlash: true,
 };
 

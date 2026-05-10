@@ -1,14 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Required for GitHub Pages
+  output: 'export',
   images: {
-    unoptimized: true, // GitHub Pages doesn't support Next.js Image Optimization
+    unoptimized: true,
   },
-  // Use the repo name for both of these
+  // Ensure this is EXACTLY your repo name with the leading slash
   basePath: '/ad-group-japann',
-  assetPrefix: '/ad-group-japann', 
   
-  trailingSlash: true, // Fixes /admin page 404s
+  // This tells Next.js: "Look for CSS/JS inside the repo folder"
+  assetPrefix: '/ad-group-japann/', 
+  
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
